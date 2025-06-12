@@ -1,0 +1,55 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\pachi\\Escritorio\\Heladeria_CRUD\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A4CB0888-1760-40AC-B04A-DE15738DA8E7}|Heladeria_CRUD.csproj|c:\\users\\pachi\\escritorio\\heladeria_crud\\promocion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{A4CB0888-1760-40AC-B04A-DE15738DA8E7}|Heladeria_CRUD.csproj|solutionrelative:promocion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Promocion.aspx",
+              "DocumentMoniker": "C:\\Users\\pachi\\Escritorio\\Heladeria_CRUD\\Promocion.aspx",
+              "RelativeDocumentMoniker": "Promocion.aspx",
+              "ToolTip": "C:\\Users\\pachi\\Escritorio\\Heladeria_CRUD\\Promocion.aspx",
+              "RelativeToolTip": "Promocion.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-12T20:02:57.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HeladeriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categoria_Helado">
+    <Key>
+      <PropertyRef Name="categoria_id" />
+    </Key>
+    <Property Name="categoria_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="DNI" />
+    </Key>
+    <Property Name="DNI" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="20" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" />
+    <Property Name="fecha_registro" Type="datetime" />
+    <Property Name="puntos_fidelidad" Type="int" />
+  </EntityType>
+  <EntityType Name="Complemento">
+    <Key>
+      <PropertyRef Name="complemento_id" />
+    </Key>
+    <Property Name="complemento_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="costo" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="stock" Type="int" />
+  </EntityType>
+  <EntityType Name="Detalle_Pedido">
+    <Key>
+      <PropertyRef Name="detalle_id" />
+    </Key>
+    <Property Name="detalle_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="pedido_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="helado_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="precio_unitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="topping_id" Type="varchar" MaxLength="6" />
+    <Property Name="complemento_id" Type="varchar" MaxLength="6" />
+    <Property Name="subtotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="empleado_id" />
+    </Key>
+    <Property Name="empleado_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="puesto" Type="varchar" MaxLength="50" />
+    <Property Name="salario" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="fecha_contratacion" Type="date" />
+    <Property Name="telefono" Type="varchar" MaxLength="20" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Helado">
+    <Key>
+      <PropertyRef Name="helado_id" />
+    </Key>
+    <Property Name="helado_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="sabor_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="tamano_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="precio_base" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="en_stock" Type="bit" />
+    <Property Name="imagen_url" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Helado_Promocion">
+    <Key>
+      <PropertyRef Name="helado_promocion_id" />
+    </Key>
+    <Property Name="helado_promocion_id" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="helado_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="promocion_id" Type="varchar" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ingrediente">
+    <Key>
+      <PropertyRef Name="ingrediente_id" />
+    </Key>
+    <Property Name="ingrediente_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="proveedor_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="helado_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="unidad_medida" Type="varchar" MaxLength="20" />
+    <Property Name="precio_por_unidad" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Inventario">
+    <Key>
+      <PropertyRef Name="inventario_id" />
+    </Key>
+    <Property Name="inventario_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="ingrediente_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="cantidad_disponible" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="fecha_actualizacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Metodo_Pago">
+    <Key>
+      <PropertyRef Name="metodo_pago_id" />
+    </Key>
+    <Property Name="metodo_pago_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="pedido_id" />
+    </Key>
+    <Property Name="pedido_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="cliente_id" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="empleado_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="fecha_pedido" Type="datetime" />
+    <Property Name="metodo_pago_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="20" />
+    <Property Name="observaciones" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Promocion">
+    <Key>
+      <PropertyRef Name="promocion_id" />
+    </Key>
+    <Property Name="promocion_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="descuento" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="fecha_inicio" Type="date" Nullable="false" />
+    <Property Name="fecha_fin" Type="date" Nullable="false" />
+    <Property Name="activa" Type="bit" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="proveedor_id" />
+    </Key>
+    <Property Name="proveedor_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="contacto" Type="varchar" MaxLength="100" />
+    <Property Name="telefono" Type="varchar" MaxLength="20" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Resena">
+    <Key>
+      <PropertyRef Name="resena_id" />
+    </Key>
+    <Property Name="resena_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="cliente_id" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="helado_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="calificacion" Type="int" Nullable="false" />
+    <Property Name="comentario" Type="varchar" MaxLength="500" />
+    <Property Name="fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Sabor">
+    <Key>
+      <PropertyRef Name="sabor_id" />
+    </Key>
+    <Property Name="sabor_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="categoria_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="es_popular" Type="bit" />
+    <Property Name="fecha_creacion" Type="date" />
+  </EntityType>
+  <EntityType Name="Tamano_Helado">
+    <Key>
+      <PropertyRef Name="tamano_id" />
+    </Key>
+    <Property Name="tamano_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="precio_adicional" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Topping">
+    <Key>
+      <PropertyRef Name="topping_id" />
+    </Key>
+    <Property Name="topping_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="precio" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="stock" Type="int" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Turno_Empleado">
+    <Key>
+      <PropertyRef Name="turno_id" />
+    </Key>
+    <Property Name="turno_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="empleado_id" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora_inicio" Type="time" Precision="7" Nullable="false" />
+    <Property Name="hora_fin" Type="time" Precision="7" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Detalle_P__compl__6477ECF3">
+    <End Role="Complemento" Type="Self.Complemento" Multiplicity="0..1" />
+    <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Complemento">
+        <PropertyRef Name="complemento_id" />
+      </Principal>
+      <Dependent Role="Detalle_Pedido">
+        <PropertyRef Name="complemento_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detalle_P__helad__628FA481">
+    <End Role="Helado" Type="Self.Helado" Multiplicity="1" />
+    <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Helado">
+        <PropertyRef Name="helado_id" />
+      </Principal>
+      <Dependent Role="Detalle_Pedido">
+        <PropertyRef Name="helado_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detalle_P__pedid__619B8048">
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+    <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedido">
+        <PropertyRef Name="pedido_id" />
+      </Principal>
+      <Dependent Role="Detalle_Pedido">
+        <PropertyRef Name="pedido_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detalle_P__toppi__6383C8BA">
+    <End Role="Topping" Type="Self.Topping" Multiplicity="0..1" />
+    <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topping">
+        <PropertyRef Name="topping_id" />
+      </Principal>
+      <Dependent Role="Detalle_Pedido">
+        <PropertyRef Name="topping_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Helado__sabor_id__4AB81AF0">
+    <End Role="Sabor" Type="Self.Sabor" Multiplicity="1" />
+    <End Role="Helado" Type="Self.Helado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sabor">
+        <PropertyRef Name="sabor_id" />
+      </Principal>
+      <Dependent Role="Helado">
+        <PropertyRef Name="sabor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Helado__tamano_i__4BAC3F29">
+    <End Role="Tamano_Helado" Type="Self.Tamano_Helado" Multiplicity="1" />
+    <End Role="Helado" Type="Self.Helado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tamano_Helado">
+        <PropertyRef Name="tamano_id" />
+      </Principal>
+      <Dependent Role="Helado">
+        <PropertyRef Name="tamano_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Helado_Pr__helad__73BA3083">
+    <End Role="Helado" Type="Self.Helado" Multiplicity="1" />
+    <End Role="Helado_Promocion" Type="Self.Helado_Promocion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Helado">
+        <PropertyRef Name="helado_id" />
+      </Principal>
+      <Dependent Role="Helado_Promocion">
+        <PropertyRef Name="helado_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Helado_Pr__promo__74AE54BC">
+    <End Role="Promocion" Type="Self.Promocion" Multiplicity="1" />
+    <End Role="Helado_Promocion" Type="Self.Helado_Promocion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promocion">
+        <PropertyRef Name="promocion_id" />
+      </Principal>
+      <Dependent Role="Helado_Promocion">
+        <PropertyRef Name="promocion_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingredien__helad__6A30C649">
+    <End Role="Helado" Type="Self.Helado" Multiplicity="1" />
+    <End Role="Ingrediente" Type="Self.Ingrediente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Helado">
+        <PropertyRef Name="helado_id" />
+      </Principal>
+      <Dependent Role="Ingrediente">
+        <PropertyRef Name="helado_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingredien__prove__693CA210">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+    <End Role="Ingrediente" Type="Self.Ingrediente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="proveedor_id" />
+      </Principal>
+      <Dependent Role="Ingrediente">
+        <PropertyRef Name="proveedor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inventari__ingre__6E01572D">
+    <End Role="Ingrediente" Type="Self.Ingrediente" Multiplicity="1" />
+    <End Role="Inventario" Type="Self.Inventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingrediente">
+        <PropertyRef Name="ingrediente_id" />
+      </Principal>
+      <Dependent Role="Inventario">
+        <PropertyRef Name="ingrediente_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pedido__cliente___5BE2A6F2">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="DNI" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="cliente_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pedido__empleado__5CD6CB2B">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="empleado_id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="empleado_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pedido__metodo_p__5DCAEF64">
+    <End Role="Metodo_Pago" Type="Self.Metodo_Pago" Multiplicity="1" />
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Metodo_Pago">
+        <PropertyRef Name="metodo_pago_id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="metodo_pago_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Resena__cliente___797309D9">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Resena" Type="Self.Resena" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="DNI" />
+      </Principal>
+      <Dependent Role="Resena">
+        <PropertyRef Name="cliente_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Resena__helado_i__7A672E12">
+    <End Role="Helado" Type="Self.Helado" Multiplicity="1" />
+    <End Role="Resena" Type="Self.Resena" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Helado">
+        <PropertyRef Name="helado_id" />
+      </Principal>
+      <Dependent Role="Resena">
+        <PropertyRef Name="helado_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sabor__categoria__3B75D760">
+    <End Role="Categoria_Helado" Type="Self.Categoria_Helado" Multiplicity="1" />
+    <End Role="Sabor" Type="Self.Sabor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria_Helado">
+        <PropertyRef Name="categoria_id" />
+      </Principal>
+      <Dependent Role="Sabor">
+        <PropertyRef Name="categoria_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Turno_Emp__emple__5535A963">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Turno_Empleado" Type="Self.Turno_Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="empleado_id" />
+      </Principal>
+      <Dependent Role="Turno_Empleado">
+        <PropertyRef Name="empleado_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="spActualizarCategoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria_id" Type="varchar" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="descripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spActualizarSabor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sabor_id" Type="varchar" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="categoria_id" Type="varchar" Mode="In" />
+    <Parameter Name="es_popular" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="spAgregarCategoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria_id" Type="varchar" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="descripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spAgregarSabor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sabor_id" Type="varchar" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="categoria_id" Type="varchar" Mode="In" />
+    <Parameter Name="es_popular" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="spBuscarCategoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Texto" Type="varchar" Mode="In" />
+    <Parameter Name="Criterio" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spBuscarSabor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Texto" Type="varchar" Mode="In" />
+    <Parameter Name="Criterio" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spEliminarCategoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria_id" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spEliminarSabor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sabor_id" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spListarCategorias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spListarSabores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="HeladeriaModelStoreContainer">
+    <EntitySet Name="Categoria_Helado" EntityType="Self.Categoria_Helado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Complemento" EntityType="Self.Complemento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detalle_Pedido" EntityType="Self.Detalle_Pedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Helado" EntityType="Self.Helado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Helado_Promocion" EntityType="Self.Helado_Promocion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ingrediente" EntityType="Self.Ingrediente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventario" EntityType="Self.Inventario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Metodo_Pago" EntityType="Self.Metodo_Pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Promocion" EntityType="Self.Promocion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Resena" EntityType="Self.Resena" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sabor" EntityType="Self.Sabor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tamano_Helado" EntityType="Self.Tamano_Helado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Topping" EntityType="Self.Topping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Turno_Empleado" EntityType="Self.Turno_Empleado" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Detalle_P__compl__6477ECF3" Association="Self.FK__Detalle_P__compl__6477ECF3">
+      <End Role="Complemento" EntitySet="Complemento" />
+      <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detalle_P__helad__628FA481" Association="Self.FK__Detalle_P__helad__628FA481">
+      <End Role="Helado" EntitySet="Helado" />
+      <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detalle_P__pedid__619B8048" Association="Self.FK__Detalle_P__pedid__619B8048">
+      <End Role="Pedido" EntitySet="Pedido" />
+      <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detalle_P__toppi__6383C8BA" Association="Self.FK__Detalle_P__toppi__6383C8BA">
+      <End Role="Topping" EntitySet="Topping" />
+      <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Helado__sabor_id__4AB81AF0" Association="Self.FK__Helado__sabor_id__4AB81AF0">
+      <End Role="Sabor" EntitySet="Sabor" />
+      <End Role="Helado" EntitySet="Helado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Helado__tamano_i__4BAC3F29" Association="Self.FK__Helado__tamano_i__4BAC3F29">
+      <End Role="Tamano_Helado" EntitySet="Tamano_Helado" />
+      <End Role="Helado" EntitySet="Helado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Helado_Pr__helad__73BA3083" Association="Self.FK__Helado_Pr__helad__73BA3083">
+      <End Role="Helado" EntitySet="Helado" />
+      <End Role="Helado_Promocion" EntitySet="Helado_Promocion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Helado_Pr__promo__74AE54BC" Association="Self.FK__Helado_Pr__promo__74AE54BC">
+      <End Role="Promocion" EntitySet="Promocion" />
+      <End Role="Helado_Promocion" EntitySet="Helado_Promocion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingredien__helad__6A30C649" Association="Self.FK__Ingredien__helad__6A30C649">
+      <End Role="Helado" EntitySet="Helado" />
+      <End Role="Ingrediente" EntitySet="Ingrediente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingredien__prove__693CA210" Association="Self.FK__Ingredien__prove__693CA210">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Ingrediente" EntitySet="Ingrediente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inventari__ingre__6E01572D" Association="Self.FK__Inventari__ingre__6E01572D">
+      <End Role="Ingrediente" EntitySet="Ingrediente" />
+      <End Role="Inventario" EntitySet="Inventario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pedido__cliente___5BE2A6F2" Association="Self.FK__Pedido__cliente___5BE2A6F2">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pedido__empleado__5CD6CB2B" Association="Self.FK__Pedido__empleado__5CD6CB2B">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pedido__metodo_p__5DCAEF64" Association="Self.FK__Pedido__metodo_p__5DCAEF64">
+      <End Role="Metodo_Pago" EntitySet="Metodo_Pago" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Resena__cliente___797309D9" Association="Self.FK__Resena__cliente___797309D9">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Resena" EntitySet="Resena" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Resena__helado_i__7A672E12" Association="Self.FK__Resena__helado_i__7A672E12">
+      <End Role="Helado" EntitySet="Helado" />
+      <End Role="Resena" EntitySet="Resena" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sabor__categoria__3B75D760" Association="Self.FK__Sabor__categoria__3B75D760">
+      <End Role="Categoria_Helado" EntitySet="Categoria_Helado" />
+      <End Role="Sabor" EntitySet="Sabor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Turno_Emp__emple__5535A963" Association="Self.FK__Turno_Emp__emple__5535A963">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Turno_Empleado" EntitySet="Turno_Empleado" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

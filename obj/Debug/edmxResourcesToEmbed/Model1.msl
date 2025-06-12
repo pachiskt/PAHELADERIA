@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HeladeriaModelStoreContainer" CdmEntityContainer="HeladeriaEntities">
+    <EntitySetMapping Name="Categoria_Helado">
+      <EntityTypeMapping TypeName="HeladeriaModel.Categoria_Helado">
+        <MappingFragment StoreEntitySet="Categoria_Helado">
+          <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="HeladeriaModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+          <ScalarProperty Name="puntos_fidelidad" ColumnName="puntos_fidelidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Complemento">
+      <EntityTypeMapping TypeName="HeladeriaModel.Complemento">
+        <MappingFragment StoreEntitySet="Complemento">
+          <ScalarProperty Name="complemento_id" ColumnName="complemento_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalle_Pedido">
+      <EntityTypeMapping TypeName="HeladeriaModel.Detalle_Pedido">
+        <MappingFragment StoreEntitySet="Detalle_Pedido">
+          <ScalarProperty Name="detalle_id" ColumnName="detalle_id" />
+          <ScalarProperty Name="pedido_id" ColumnName="pedido_id" />
+          <ScalarProperty Name="helado_id" ColumnName="helado_id" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+          <ScalarProperty Name="topping_id" ColumnName="topping_id" />
+          <ScalarProperty Name="complemento_id" ColumnName="complemento_id" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="HeladeriaModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="empleado_id" ColumnName="empleado_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+          <ScalarProperty Name="salario" ColumnName="salario" />
+          <ScalarProperty Name="fecha_contratacion" ColumnName="fecha_contratacion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Helado">
+      <EntityTypeMapping TypeName="HeladeriaModel.Helado">
+        <MappingFragment StoreEntitySet="Helado">
+          <ScalarProperty Name="helado_id" ColumnName="helado_id" />
+          <ScalarProperty Name="sabor_id" ColumnName="sabor_id" />
+          <ScalarProperty Name="tamano_id" ColumnName="tamano_id" />
+          <ScalarProperty Name="precio_base" ColumnName="precio_base" />
+          <ScalarProperty Name="en_stock" ColumnName="en_stock" />
+          <ScalarProperty Name="imagen_url" ColumnName="imagen_url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Helado_Promocion">
+      <EntityTypeMapping TypeName="HeladeriaModel.Helado_Promocion">
+        <MappingFragment StoreEntitySet="Helado_Promocion">
+          <ScalarProperty Name="helado_promocion_id" ColumnName="helado_promocion_id" />
+          <ScalarProperty Name="helado_id" ColumnName="helado_id" />
+          <ScalarProperty Name="promocion_id" ColumnName="promocion_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingrediente">
+      <EntityTypeMapping TypeName="HeladeriaModel.Ingrediente">
+        <MappingFragment StoreEntitySet="Ingrediente">
+          <ScalarProperty Name="ingrediente_id" ColumnName="ingrediente_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="proveedor_id" ColumnName="proveedor_id" />
+          <ScalarProperty Name="helado_id" ColumnName="helado_id" />
+          <ScalarProperty Name="unidad_medida" ColumnName="unidad_medida" />
+          <ScalarProperty Name="precio_por_unidad" ColumnName="precio_por_unidad" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventario">
+      <EntityTypeMapping TypeName="HeladeriaModel.Inventario">
+        <MappingFragment StoreEntitySet="Inventario">
+          <ScalarProperty Name="inventario_id" ColumnName="inventario_id" />
+          <ScalarProperty Name="ingrediente_id" ColumnName="ingrediente_id" />
+          <ScalarProperty Name="cantidad_disponible" ColumnName="cantidad_disponible" />
+          <ScalarProperty Name="fecha_actualizacion" ColumnName="fecha_actualizacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Metodo_Pago">
+      <EntityTypeMapping TypeName="HeladeriaModel.Metodo_Pago">
+        <MappingFragment StoreEntitySet="Metodo_Pago">
+          <ScalarProperty Name="metodo_pago_id" ColumnName="metodo_pago_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedido">
+      <EntityTypeMapping TypeName="HeladeriaModel.Pedido">
+        <MappingFragment StoreEntitySet="Pedido">
+          <ScalarProperty Name="pedido_id" ColumnName="pedido_id" />
+          <ScalarProperty Name="cliente_id" ColumnName="cliente_id" />
+          <ScalarProperty Name="empleado_id" ColumnName="empleado_id" />
+          <ScalarProperty Name="fecha_pedido" ColumnName="fecha_pedido" />
+          <ScalarProperty Name="metodo_pago_id" ColumnName="metodo_pago_id" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Promocion">
+      <EntityTypeMapping TypeName="HeladeriaModel.Promocion">
+        <MappingFragment StoreEntitySet="Promocion">
+          <ScalarProperty Name="promocion_id" ColumnName="promocion_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="descuento" ColumnName="descuento" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="activa" ColumnName="activa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedor">
+      <EntityTypeMapping TypeName="HeladeriaModel.Proveedor">
+        <MappingFragment StoreEntitySet="Proveedor">
+          <ScalarProperty Name="proveedor_id" ColumnName="proveedor_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="contacto" ColumnName="contacto" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resena">
+      <EntityTypeMapping TypeName="HeladeriaModel.Resena">
+        <MappingFragment StoreEntitySet="Resena">
+          <ScalarProperty Name="resena_id" ColumnName="resena_id" />
+          <ScalarProperty Name="cliente_id" ColumnName="cliente_id" />
+          <ScalarProperty Name="helado_id" ColumnName="helado_id" />
+          <ScalarProperty Name="calificacion" ColumnName="calificacion" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sabor">
+      <EntityTypeMapping TypeName="HeladeriaModel.Sabor">
+        <MappingFragment StoreEntitySet="Sabor">
+          <ScalarProperty Name="sabor_id" ColumnName="sabor_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
+          <ScalarProperty Name="es_popular" ColumnName="es_popular" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tamano_Helado">
+      <EntityTypeMapping TypeName="HeladeriaModel.Tamano_Helado">
+        <MappingFragment StoreEntitySet="Tamano_Helado">
+          <ScalarProperty Name="tamano_id" ColumnName="tamano_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="precio_adicional" ColumnName="precio_adicional" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Topping">
+      <EntityTypeMapping TypeName="HeladeriaModel.Topping">
+        <MappingFragment StoreEntitySet="Topping">
+          <ScalarProperty Name="topping_id" ColumnName="topping_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Turno_Empleado">
+      <EntityTypeMapping TypeName="HeladeriaModel.Turno_Empleado">
+        <MappingFragment StoreEntitySet="Turno_Empleado">
+          <ScalarProperty Name="turno_id" ColumnName="turno_id" />
+          <ScalarProperty Name="empleado_id" ColumnName="empleado_id" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
+          <ScalarProperty Name="hora_fin" ColumnName="hora_fin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spActualizarCategoria" FunctionName="HeladeriaModel.Store.spActualizarCategoria">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HeladeriaModel.spActualizarCategoria_Result">
+          <ScalarProperty Name="CodError" ColumnName="CodError" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spActualizarSabor" FunctionName="HeladeriaModel.Store.spActualizarSabor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HeladeriaModel.spActualizarSabor_Result">
+          <ScalarProperty Name="CodError" ColumnName="CodError" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spAgregarCategoria" FunctionName="HeladeriaModel.Store.spAgregarCategoria">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HeladeriaModel.spAgregarCategoria_Result">
+          <ScalarProperty Name="CodError" ColumnName="CodError" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spAgregarSabor" FunctionName="HeladeriaModel.Store.spAgregarSabor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HeladeriaModel.spAgregarSabor_Result">
+          <ScalarProperty Name="CodError" ColumnName="CodError" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spBuscarCategoria" FunctionName="HeladeriaModel.Store.spBuscarCategoria">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HeladeriaModel.spBuscarCategoria_Result">
+          <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spBuscarSabor" FunctionName="HeladeriaModel.Store.spBuscarSabor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HeladeriaModel.spBuscarSabor_Result">
+          <ScalarProperty Name="sabor_id" ColumnName="sabor_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="es_popular" ColumnName="es_popular" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEliminarCategoria" FunctionName="HeladeriaModel.Store.spEliminarCategoria">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HeladeriaModel.spEliminarCategoria_Result">
+          <ScalarProperty Name="CodError" ColumnName="CodError" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEliminarSabor" FunctionName="HeladeriaModel.Store.spEliminarSabor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HeladeriaModel.spEliminarSabor_Result">
+          <ScalarProperty Name="CodError" ColumnName="CodError" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spListarCategorias" FunctionName="HeladeriaModel.Store.spListarCategorias">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HeladeriaModel.spListarCategorias_Result">
+          <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spListarSabores" FunctionName="HeladeriaModel.Store.spListarSabores">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HeladeriaModel.spListarSabores_Result">
+          <ScalarProperty Name="sabor_id" ColumnName="sabor_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="es_popular" ColumnName="es_popular" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

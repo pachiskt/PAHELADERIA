@@ -1,0 +1,201 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Heladeria_CRUD.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Heladería Amorino</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <!-- Estilos personalizados -->
+    <style>
+    /* IMAGEN DE FONDO */
+    body {
+        background-image: url('https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        /* Capa semi-transparente para mejorar legibilidad */
+        background-color: rgba(255, 255, 255, 0.7); /* Ajusta el 0.7 para más/menos transparencia */
+        background-blend-mode: lighten;
+        min-height: 100vh; /* Cubre toda la pantalla */
+    }
+
+    /* Fondo blanco semi-transparente para el contenido */
+    .container.body-content {
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 15px;
+        margin-top: 20px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* CABECERA PRINCIPAL */
+    .custom-header {
+        background: linear-gradient(135deg, #FFB6C1 0%, #FFD1DC 100%); /* Degradado nuevo */
+        padding: 0.8rem 0;
+        margin-bottom: 0; 
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border-radius: 0 0 15px 15px; 
+    }
+
+    /* CONTENEDOR DEL LOGO */
+    .brand-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* TÍTULO */
+    .navbar-brand {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: #D35D6E !important; /* Color actualizado */
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        padding-bottom: 0; 
+    }
+
+    /* BARRA DE NAVEGACIÓN */
+    .navbar {
+        background: #acf7c3 !important;
+        padding: 0.3rem 1rem; /* Reduje el padding vertical */
+        width: 90%;
+        margin: 0 auto;
+        max-width: 1400px;
+        border-radius: 0 0 15px 15px;
+        min-height: auto; /* Elimina cualquier altura mínima */
+    }
+
+    /* ICONO */
+    .fa-ice-cream {
+        font-size: 2rem;
+        color: #D35D6E !important;
+        margin-right: 0.5rem; /* Espaciado */
+    }
+
+    /* MENÚ DE BOTONES */
+    .navbar-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+    .nav-item {
+        white-space: nowrap;
+        background: rgba(255,255,255,0.7) !important;
+        border-radius: 25px; /* Más redondeado */
+        margin: 0.3rem; /* Más espacio entre botones */
+        transition: all 0.3s;
+        padding: 0.3rem; /* Espacio interno adicional */
+    }
+
+    .nav-link {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        color: #42895c !important;
+        padding: 0.7rem 1.3rem !important; /* Más grande (vertical y horizontal) */
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.2rem; /* Tamaño de fuente ligeramente mayor */
+    }
+    .nav-item:hover {
+        background: rgba(255,255,255,0.9) !important;
+        transform: translateY(-2px); /* Efecto hover */
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+        .navbar {
+            width: 95%;
+            padding: 0.5rem;
+        }
+        .nav-item {
+            width: 100%;
+            margin: 0.1rem 0;
+        }
+    }
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <!-- Cabecera -->
+        <header class="custom-header">
+            <div class="container">
+                <div class="brand-container">
+                    <i class="fas fa-ice-cream"></i>
+                    <a class="navbar-brand" runat="server" href="~/">Heladería Amorino</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+            <div class="container">
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <!-- MENUS -->
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About"><i class="fas fa-home"></i> Inicio</a></li>       
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Cliente"><i class="fas fa-tag"></i> Cliente</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Promocion"><i class="fas fa-tag"></i> Promoción</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/CategoriaHelado"><i class="fas fa-tag"></i> Categoria de Helado</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Sabor"><i class="fas fa-tag"></i> Sabores</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Helado"><i class="fas fa-tag"></i> Helados</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Tamaño"><i class="fas fa-tag"></i> Tamaños</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Ingrediente"><i class="fas fa-tag"></i> Ingredientes</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Pedido"><i class="fas fa-tag"></i> Pedidos</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/MetodoPago"><i class="fas fa-tag"></i> Metodo de Pago</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Topping"><i class="fas fa-tag"></i> Toopings</a></li>
+                        
+
+              
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Contenido principal -->
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Heladería Amorino</p>
+            </footer>
+        </div>
+    </form>
+    
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>
